@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mmu.OrthographyService", "Sources\Application\Mmu.OrthographyService.csproj", "{36BB04E5-5372-4E22-82CB-C46A810D855B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mmu.OrthographyService.TestConsole", "Sources\TestConsole\Mmu.OrthographyService.TestConsole.csproj", "{8ABB6ECC-3B91-4CC8-A346-EAFBD967BA07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mmu.OrthographyService.TaskRunner", "Sources\TaskRunner\Mmu.OrthographyService.TaskRunner.csproj", "{2C6DF286-3228-4962-9C01-0AEB8278AF29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36BB04E5-5372-4E22-82CB-C46A810D855B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36BB04E5-5372-4E22-82CB-C46A810D855B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36BB04E5-5372-4E22-82CB-C46A810D855B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36BB04E5-5372-4E22-82CB-C46A810D855B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ABB6ECC-3B91-4CC8-A346-EAFBD967BA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ABB6ECC-3B91-4CC8-A346-EAFBD967BA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ABB6ECC-3B91-4CC8-A346-EAFBD967BA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABB6ECC-3B91-4CC8-A346-EAFBD967BA07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6DF286-3228-4962-9C01-0AEB8278AF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6DF286-3228-4962-9C01-0AEB8278AF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6DF286-3228-4962-9C01-0AEB8278AF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6DF286-3228-4962-9C01-0AEB8278AF29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {195AE52E-F229-4883-B28C-68D317581210}
+	EndGlobalSection
+EndGlobal
