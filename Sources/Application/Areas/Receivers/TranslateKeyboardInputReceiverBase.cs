@@ -24,7 +24,7 @@ namespace Mmu.OrthographyService.Areas.Receivers
             _clipboardService = clipboardService;
         }
 
-        public async Task ReceiveAsync(KeyboardInput input)
+        public async Task<bool> ReceiveAsync(KeyboardInput input)
         {
             var currentText = _clipboardService.GetText();
             if (!string.IsNullOrEmpty(currentText))
@@ -32,6 +32,8 @@ namespace Mmu.OrthographyService.Areas.Receivers
                 var translation = await TranslateAsync(currentText);
                 _clipboardService.SetText(translation);
             }
+
+            return false;
         }
 
         protected abstract string TargetLanguageCode { get; }
