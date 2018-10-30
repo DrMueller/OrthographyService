@@ -27,11 +27,13 @@ namespace Mmu.OrthographyService.Areas.Receivers
         public async Task<bool> ReceiveAsync(KeyboardInput input)
         {
             var currentText = _clipboardService.GetText();
-            if (!string.IsNullOrEmpty(currentText))
+            if (string.IsNullOrEmpty(currentText) || currentText.Length > 1000)
             {
-                var translation = await TranslateAsync(currentText);
-                _clipboardService.SetText(translation);
+                return false;
             }
+
+            var translation = await TranslateAsync(currentText);
+            _clipboardService.SetText(translation);
 
             return false;
         }
