@@ -15,6 +15,7 @@ namespace Mmu.OrthographyService.Areas.Receivers
         private readonly IClipboardProxy _clipboardService;
         private ITranslationService _translationService;
         public abstract KeyboardEventConfiguration Configuration { get; }
+        protected abstract string TargetLanguageCode { get; }
 
         protected TranslateKeyboardInputReceiverBase(
             ITranslationService translationService,
@@ -24,21 +25,17 @@ namespace Mmu.OrthographyService.Areas.Receivers
             _clipboardService = clipboardService;
         }
 
-        public async Task<bool> ReceiveAsync(KeyboardInput input)
+        public async Task ReceiveAsync(KeyboardInput input)
         {
             var currentText = _clipboardService.GetText();
             if (string.IsNullOrEmpty(currentText) || currentText.Length > 1000)
             {
-                return false;
+                return;
             }
 
             var translation = await TranslateAsync(currentText);
             _clipboardService.SetText(translation);
-
-            return false;
         }
-
-        protected abstract string TargetLanguageCode { get; }
 
         private async Task<string> TranslateAsync(string sourceText)
         {

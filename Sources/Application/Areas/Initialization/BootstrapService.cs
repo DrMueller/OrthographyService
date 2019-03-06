@@ -1,8 +1,7 @@
-﻿using System.Reflection;
-using Mmu.Mlh.ApplicationExtensions.Areas.DependencyInjection.Models;
-using Mmu.Mlh.ApplicationExtensions.Areas.DependencyInjection.Services;
-using Mmu.Mlh.ApplicationExtensions.Areas.ServiceProvisioning;
-using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
+﻿using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
+using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Models;
+using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Services;
+using Mmu.Mlh.ServiceProvisioning.Areas.Provisioning.Services;
 
 namespace Mmu.OrthographyService.Areas.Initialization
 {
@@ -10,8 +9,8 @@ namespace Mmu.OrthographyService.Areas.Initialization
     {
         public static void Start()
         {
-            ContainerInitializationService.CreateInitializedContainer(new AssemblyParameters(typeof(BootstrapService).Assembly, "Mmu.OrthographyService"));
-            var keyboardHookService = ProvisioningServiceSingleton.Instance.GetService<IKeyboardHookService>();
+            ContainerInitializationService.CreateInitializedContainer(new ContainerConfiguration(typeof(BootstrapService).Assembly, "Mmu.OrthographyService", true));
+            var keyboardHookService = ServiceLocatorSingleton.Instance.GetService<IKeyboardHookService>();
             keyboardHookService.HookKeyboard();
         }
     }
