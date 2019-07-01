@@ -7,7 +7,7 @@ namespace Mmu.OrthographyService.Infrastructure.Translations
     {
         public TranslationServiceSettings ProvideSettings()
         {
-            return new TranslationServiceSettings("045dc19faafb43afa35dc34e033ef1fe");
+            return new TranslationServiceSettings("6b1a3edf9b514968950cb3fd040ef9eb");
         }
     }
 }

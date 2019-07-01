@@ -7,15 +7,14 @@ using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models
 using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
 using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
 using Mmu.OrthographyService.Areas.Clipboards.Services;
+using Mmu.OrthographyService.Infrastructure.Context;
 
 namespace Mmu.OrthographyService.Areas.Receivers
 {
     public abstract class TranslateKeyboardInputReceiverBase : IKeyboardInputReceiver
     {
         private readonly IClipboardProxy _clipboardService;
-        private ITranslationService _translationService;
-        public abstract KeyboardEventConfiguration Configuration { get; }
-        protected abstract string TargetLanguageCode { get; }
+        private readonly ITranslationService _translationService;
 
         protected TranslateKeyboardInputReceiverBase(
             ITranslationService translationService,
@@ -25,16 +24,22 @@ namespace Mmu.OrthographyService.Areas.Receivers
             _clipboardService = clipboardService;
         }
 
+        public abstract KeyboardEventConfiguration Configuration { get; }
+        protected abstract string TargetLanguageCode { get; }
+
         public async Task ReceiveAsync(KeyboardInput input)
         {
-            var currentText = _clipboardService.GetText();
-            if (string.IsNullOrEmpty(currentText) || currentText.Length > 1000)
+            await ErrorHandler.HandledActionAsync(async () =>
             {
-                return;
-            }
+                var currentText = _clipboardService.GetText();
+                if (string.IsNullOrEmpty(currentText) || currentText.Length > 1000)
+                {
+                    return;
+                }
 
-            var translation = await TranslateAsync(currentText);
-            _clipboardService.SetText(translation);
+                var translation = await TranslateAsync(currentText);
+                _clipboardService.SetText(translation);
+            });
         }
 
         private async Task<string> TranslateAsync(string sourceText)

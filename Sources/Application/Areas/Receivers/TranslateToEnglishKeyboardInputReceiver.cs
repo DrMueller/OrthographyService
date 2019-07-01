@@ -11,7 +11,7 @@ namespace Mmu.OrthographyService.Areas.Receivers
     {
         private readonly Lazy<KeyboardEventConfiguration> _lazyConfiguration = new Lazy<KeyboardEventConfiguration>(
             () => new KeyboardEventConfiguration(
-                new KeyboardInputKeyConfiguration(KeyboardInputKey.F),
+                new KeyboardInputKeyConfiguration(KeyboardInputKey.H),
                 new ModifierConfiguration(
                     true,
                     Option.CreateNotApplicable<bool>(true),

@@ -99,8 +99,12 @@
     <Compile Include="Areas\Initialization\BootstrapService.cs" />
     <Compile Include="Areas\Receivers\TranslateKeyboardInputReceiverBase.cs" />
     <Compile Include="Areas\Receivers\TranslateToEnglishKeyboardInputReceiver.cs" />
-    <Compile Include="Areas\Receivers\TranslateToGermanyKeyboardInputReceiver.cs" />
+    <Compile Include="Areas\Receivers\TranslateToFrenchKeyboardInputReceiver.cs" />
+    <Compile Include="Areas\Receivers\TranslateToGermanKeyboardInputReceiver.cs" />
+    <Compile Include="Infrastructure\Context\ErrorHandler.cs" />
     <Compile Include="Infrastructure\DependencyInjection\OrthograpyServiceRegistry.cs" />
+    <Compile Include="Infrastructure\Logging\Services\ILoggingService.cs" />
+    <Compile Include="Infrastructure\Logging\Services\Implementation\LoggingService.cs" />
     <Compile Include="Infrastructure\Translations\TranslationServiceSettingsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +128,7 @@
   <ItemGroup>
     <Content Include="Infrastructure\Assets\M.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
